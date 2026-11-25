@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мой заказ — Гуманетрия</title>
+<meta name="description" content="Статус заказа Гуманетрии по номеру: оплачен или ждёт оплаты, что куплено, как прислать детали задачи.">
+<meta name="theme-color" content="#F4EEE3">
+<meta name="color-scheme" content="light">
+<meta property="og:title" content="Мой заказ — Гуманетрия">
+<meta property="og:description" content="Статус заказа по номеру, без регистрации.">
+<meta property="og:image" content="assets/img/hero-1400.webp">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preload" href="assets/fonts/Literata-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Onest-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=20261115">
+<link rel="stylesheet" href="/fix.css?v=1">
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Гуманетрия, на главную"><img src="assets/img/pechat.webp" alt="" width="40" height="40"><b>Гуманетрия</b></a>
+    <nav class="nav" id="nav" aria-label="Разделы"><a href="index.html">Главная</a><a href="oplata.html">Услуги и оплата</a><a href="korobochki.html">Коробочки</a><a href="primery.html">Примеры</a><a href="masterskaya.html">Мастерская Фомы</a><a href="o-dome.html">О доме</a><a href="svyaz.html">Связь</a></nav>
+    <a class="lang" href="https://gumanetriya.com/" hreflang="en" lang="en" title="English">EN</a>
+    <a class="btn" href="https://t.me/gumanetriya_ai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 3.6 2.9 10.7c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5ZM8.6 13.4l9.4-5.9c.4-.3.8-.1.5.2l-7.8 7-.3 3.3-1.8-4.6Z"/></svg><span>Канал в Telegram</span></a>
+    <button class="burger" aria-controls="nav" aria-expanded="false" aria-label="Меню"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main id="main">
+<section class="phead"><div class="wrap"><p class="eyebrow">Мой заказ</p><h1>Где мой заказ</h1>
+<p class="lead">Номер заказа есть на странице после оплаты и в письме банка. Регистрация не нужна.</p>
+<form class="zk-find" id="zf" autocomplete="off"><label for="zn">Номер заказа</label><div class="zk-row"><input id="zn" inputmode="latin" maxlength="40" placeholder="Например, mwvdeg9492699v2u"><button class="btn" type="submit">Показать</button></div><p class="sh-err" id="ze" role="alert"></p></form>
+<div id="zl" class="zk-list" aria-live="polite"></div>
+<div class="zk-help"><h2>Что дальше</h2>
+<p><b>Оплачен.</b> Пришлите коротко, что нужно получить, если ещё не прислали. Результат придёт на ваш контакт.</p>
+<p><b>Ждёт оплаты.</b> Деньги не списаны. Выберите услугу и оплатите ещё раз — это новый заказ.</p>
+<p><b>Готовые коробочки и сканы</b> делаем после оплаты. Боты и автоматизацию сначала обсуждаем, потом оплата.</p>
+<div class="cta-row"><a class="btn" href="oplata.html">Выбрать услугу</a><a class="link-arrow" href="#chat-foma" data-chat>Спросить в чате</a></div></div>
+</div></section>
+</main>
+<style>.zk-find{max-width:620px;margin-top:20px}.zk-find label{display:block;font-weight:600;margin-bottom:8px}.zk-row{display:flex;gap:10px;flex-wrap:wrap}.zk-row input{flex:1 1 220px;min-width:0;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.zk-list{display:grid;gap:12px;max-width:760px;margin:18px 0}.zk-card{background:var(--sheet);border:1px solid var(--line);border-radius:18px;padding:18px 20px}.zk-card p{margin:4px 0}.zk-st{display:inline-block;font-weight:700;padding:4px 10px;border-radius:99px;background:#eef0e2}.zk-st.ok{background:#dfe9c8}.zk-st.no{background:#f6dcd4}.zk-num{font-family:ui-monospace,monospace;word-break:break-all;opacity:.75}
+.zk-help{max-width:760px;margin-top:26px}.zk-help h2{font-size:var(--t-lg);margin:0 0 8px}.zk-help p{margin:0 0 10px}</style>
+<script>
+(()=>{const $=id=>document.getElementById(id);const API='https://n8n.gumanetriya.ru/webhook/sait-status?o=';
+const clean=s=>(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');const rub=v=>Number(v).toLocaleString('ru-RU')+' ₽';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let saved=[];try{saved=JSON.parse(localStorage.getItem('gm_orders')||'[]')}catch(e){}
+function keep(o){saved=[o].concat(saved.filter(x=>x!==o)).slice(0,10);try{localStorage.setItem('gm_orders',JSON.stringify(saved))}catch(e){}}
+async function show(o,top){const id='z-'+o;let el=$(id);if(!el){el=document.createElement('div');el.id=id;el.className='zk-card';top?$('zl').prepend(el):$('zl').append(el)}
+ el.innerHTML='<p>Проверяем заказ…</p>';
+ try{const j=await (await fetch(API+o)).json();
+  if(!j.ok){el.innerHTML='<p><b>Заказ не найден.</b> Проверьте номер или напишите в чат.</p><p class="zk-num">'+esc(o)+'</p>';return false}
+  const st=j.status==='succeeded'?['Оплачен','ok']:j.status==='canceled'?['Оплата не прошла','no']:['Ждёт оплаты',''];
+  el.innerHTML='<p><span class="zk-st '+st[1]+'">'+st[0]+'</span></p><p><b>'+esc((j.what||'').replace(/^Корзина:\s*/,''))+'</b></p><p>'+rub(j.sum||0)+'</p><p class="zk-num">№ '+esc(o)+'</p>'+
+   (j.status==='succeeded'?'<div class="cta-row"><a class="btn" href="oplata-ok.html?o='+o+'">Отправить детали задачи</a></div>':'');
+  keep(o);return true}catch(e){el.innerHTML='<p>Не получилось проверить. Попробуйте через минуту.</p>';return false}}
+$('zf').addEventListener('submit',ev=>{ev.preventDefault();const o=clean($('zn').value);$('ze').textContent='';
+ if(o.length<8){$('ze').textContent='Номер — это 16 латинских букв и цифр.';$('zn').focus();return}show(o,true)});
+const q=clean(new URLSearchParams(location.search).get('o'));if(q.length>=8){$('zn').value=q;show(q,true)}
+saved.filter(x=>x!==q).forEach(o=>show(o,false));})();
+</script>
+<footer class="ftr">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><img src="assets/img/pechat.webp" alt="" width="40" height="40"><b>Гуманетрия</b></a>
+      <p style="margin-top:14px">Автоматизируем рутину, чтобы у людей оставалось время на жизнь. Боты, автоматизация, документы, 3D и схемы.</p>
+    </div>
+    <div>
+      <h4>Заказать</h4>
+      <ul>
+        <li><a href="https://t.me/gumanetriya_zakaz_bot" target="_blank" rel="noopener">Бот заявок в Telegram</a></li>
+        <li><a href="https://max.ru/se15096221_bot?start=sait" target="_blank" rel="noopener">Бот заявок в MAX</a></li>
+        <li><a href="oplata.html">Оплатить на сайте</a></li>
+        <li><a href="zakaz.html">Мой заказ</a></li>
+        <li><a href="{{KWORK_URL}}" target="_blank" rel="noopener">Профиль на Kwork</a></li>
+        <li><a href="https://www.avito.ru/ekaterinburg/predlozheniya_uslug/telegram-boty_i_avtomatizatsiya_dlya_biznesa_8477381558" target="_blank" rel="noopener">Объявление на Авито</a></li>
+        <li><a href="{{FL_URL}}" target="_blank" rel="noopener">Профиль на FL.ru</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Смотреть</h4>
+      <ul>
+        <li><a href="https://vkvideo.ru/@club242703612" target="_blank" rel="noopener">VK Видео</a></li>
+        <li><a href="https://dzen.ru/gumanetriya" target="_blank" rel="noopener">Дзен</a></li>
+        <li><a href="svoi.html">Мастерская для своих</a></li>
+      </ul>
+    </div>
+    <div class="soc"><span class="soc-t">Мы в сети</span><a href="https://t.me/gumanetriya_ai" target="_blank" rel="noopener">Telegram-лента</a><a href="https://t.me/gumanetriya_besedka" target="_blank" rel="noopener">Беседка</a><a href="https://vk.com/club242703612" target="_blank" rel="noopener">ВКонтакте</a><a href="https://max.ru/se15096221_biz" target="_blank" rel="noopener">MAX</a><a href="https://www.youtube.com/@gumanetriya" target="_blank" rel="noopener">YouTube</a><a href="https://rutube.ru/channel/82631414/" target="_blank" rel="noopener">RUTUBE</a><a href="https://t.me/gumanetriya_3d" target="_blank" rel="noopener">3D-детали</a></div>
+    <p class="ftr-g">Заявки принимаем круглосуточно · ответим в ближайшее время · 2–3 способа решения · не уходим после сдачи</p>
+    <div class="small">
+      <span><a href="oferta.html">Договор-оферта</a> · <a href="politika.html">Политика конфиденциальности</a> · <a href="soglasie.html">Согласие на обработку данных</a> · <a href="oferta.html#rekvizity">Реквизиты исполнителя</a> · <a href="mailto:{{ПОЧТА_СВЯЗИ}}">{{ПОЧТА_СВЯЗИ}}</a></span>
+      <span>© 2026 Гуманетрия</span>
+      <span>Персональные данные — только в форме оплаты и с вашего согласия. Cookie и чужих счётчиков нет: визиты считаем сами, без личных данных.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/site.js?v=20261115" defer></script>
+<script src="/chat.js?v=18" defer></script>
+<script src="/korzina.js?v=2" defer></script>
+</body>
+</html>

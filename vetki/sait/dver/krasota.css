@@ -1,0 +1,53 @@
+/* Красота Гуманетрии v2 (25.11): единые токены «Верфь на рассвете» поверх site.css и style.css. KRASOTA_V1
+   Мох — главное действие, абрикос — второе, глина — цифры, латунь — линии и печати, сургуч — штампы. */
+:root{
+  --g-night:#142019;--g-moss:#31442a;--g-moss-d:#26371f;--g-moss-6:#4a6340;--g-cream:#fffbee;--g-paper:#f5f0e4;
+  --g-apricot:#f0a868;--g-apricot-d:#c9783c;--g-clay:#b9673c;--g-brass:#b08d57;--g-wax:#7a2430;--g-ink:#1b211c;--g-muted:#5d6559;--g-line:#ddd3bf;
+  --wave:var(--g-moss);--wave-d:var(--g-moss-d);--paper:var(--g-paper);--sheet:var(--g-cream);--ink:var(--g-ink);--line:var(--g-line);--cherry:#5b2a22;--bronze:var(--g-brass)}
+/* бумага с зерном */
+body:not(.dv-night){background-color:var(--g-paper);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .18 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* шапка внутренних страниц: светлая палуба с латунной кромкой */
+.hdr{background:rgba(255,251,238,.88)!important;backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid rgba(176,141,87,.45)!important;box-shadow:0 10px 30px -24px rgba(20,32,25,.6)}
+.hdr .brand b{color:var(--g-moss)!important;letter-spacing:.14em}
+.hdr .nav a{color:var(--g-ink)}.hdr .nav a[aria-current]{color:var(--g-moss);text-decoration:underline;text-decoration-color:var(--g-apricot);text-decoration-thickness:3px;text-underline-offset:7px}
+/* надзаголовок как штамп */
+.phead .eyebrow,.sec-head .eyebrow,main .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border:1.5px solid rgba(185,103,60,.55);border-radius:6px;color:var(--g-clay)!important;letter-spacing:.16em;transform:rotate(-1.2deg);background:rgba(255,251,238,.6)}
+.phead .eyebrow::before,.sec-head .eyebrow::before,main .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--g-clay);display:inline-block;flex:none;margin:0}
+/* заголовки: мох вместо вишни, рукописное подчёркивание у em */
+main h1,main h2{color:var(--g-moss)!important}
+main h1 em,main h2 em{font-style:italic;color:var(--g-clay);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9c30-6 62-7 96-4s66 4 98-2' fill='none' stroke='%23f0a868' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") left bottom/100% .28em no-repeat;padding-bottom:.08em}
+/* кнопки */
+.btn:not(.hdr-cart):not(.btn--ghost){background:var(--g-moss);color:var(--g-cream);box-shadow:0 10px 22px -14px rgba(38,55,31,.9)}
+.btn:not(.hdr-cart):not(.btn--ghost):hover{background:var(--g-moss-d)}
+.hdr-cart{background:var(--g-apricot)!important;color:var(--g-night)!important;border:0!important}
+/* карточки: ярлык и мягкий подъём */
+.box,.card,.svc,.price-card,.kc{border-color:var(--g-line)!important;transition:transform .2s ease,box-shadow .2s ease}
+@media (hover:hover){.box:hover,.card:hover,.svc:hover{transform:translateY(-3px);box-shadow:0 26px 50px -30px rgba(20,32,25,.55)}}
+/* подвал: ночная палуба, как прихожая */
+.ftr{background:var(--g-night)!important;color:#dfe3d2!important;border-top:3px solid var(--g-brass)!important}
+.ftr a,.ftr b,.ftr h3,.ftr h4,.ftr p,.ftr span,.ftr li{color:#e9e6d6!important}
+.ftr a:hover{color:var(--g-apricot)!important}
+.ftr .brand img{filter:sepia(.3) brightness(1.05)}
+.ftr .ftr-g{color:#dfe3d2!important;background:rgba(255,251,238,.06)!important;border-color:rgba(176,141,87,.45)!important}
+/* склад коробочек по профессиям */
+.sklad{padding:34px 0 10px}
+.sklad .sk-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.sklad .sk-head p{margin:0;color:var(--g-muted);max-width:40em}
+.shelf{position:relative;margin:22px 0 0;padding:16px 16px 26px;border-radius:18px;background:linear-gradient(180deg,rgba(255,251,238,.9),rgba(245,240,228,.9))}
+.shelf::after{content:"";position:absolute;left:8px;right:8px;bottom:6px;height:12px;border-radius:4px;background:linear-gradient(180deg,#a7774a,#7d5532);box-shadow:0 8px 14px -8px rgba(60,35,15,.7)}
+.shelf h3{display:flex;align-items:center;gap:10px;margin:0 0 12px;font:700 19px/1.2 Literata,serif;color:var(--g-moss)}
+.shelf h3 span.tag{font:600 11.5px/1 Onest,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--g-brass);border:1px solid var(--g-brass);border-radius:4px;padding:4px 7px}
+.shelf .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;position:relative;z-index:1}
+.kor{position:relative;display:flex;flex-direction:column;gap:6px;min-height:178px;padding:16px 16px 14px;border-radius:12px;background:#fff8e6;border:1.5px solid #d9c49c;text-decoration:none;color:var(--g-ink);box-shadow:0 2px 0 #c9b083,0 14px 24px -18px rgba(60,35,15,.6)}
+.kor::before{content:"";position:absolute;left:50%;top:-2px;width:54px;height:15px;transform:translateX(-50%);border-radius:0 0 4px 4px;background:repeating-linear-gradient(90deg,rgba(176,141,87,.5) 0 5px,rgba(176,141,87,.28) 5px 10px);pointer-events:none}
+.kor b{position:relative;font:700 16.5px/1.25 Literata,serif;color:var(--g-moss);background:#fff8e6;padding-right:4px;max-width:85%}
+.kor .in{position:relative;font-size:14px;color:var(--g-muted);background:rgba(255,248,230,.92);border-radius:6px}
+.kor .pr{position:relative;margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.kor .pr em{font:700 17px/1 Literata,serif;font-style:normal;color:var(--g-clay);background:#fff8e6;padding:2px 4px;border-radius:4px}
+.kor .pr span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:10px;background:var(--g-moss);color:var(--g-cream);font:600 14px/1 Onest,sans-serif}
+.kor .lbl{position:absolute;right:10px;top:10px;transform:rotate(4deg);font:700 10.5px/1 Onest,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--g-wax);border:1.5px solid var(--g-wax);border-radius:4px;padding:4px 6px;background:#fff8e6}
+.kor.soon{background:#f6efdc;border-style:dashed}.kor.soon .pr span{background:#fff;color:var(--g-moss);border:1.5px solid var(--g-moss)}
+@media (hover:hover){.kor:hover{transform:translateY(-3px) rotate(-.4deg);box-shadow:0 2px 0 #c9b083,0 24px 34px -20px rgba(60,35,15,.7)}}
+.kor{transition:transform .2s ease,box-shadow .2s ease}
+@media (prefers-reduced-motion:reduce){.kor,.box,.card,.svc{transition:none!important;transform:none!important}}
+@media (max-width:640px){.shelf{padding:14px 10px 24px}.shelf .row{grid-template-columns:1fr}.phead .eyebrow,main .eyebrow{transform:none}}

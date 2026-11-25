@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Гуманетрия — мастерская ботов, сайтов, автоматизации и 3D</title>
+<meta name="description" content="Мастерская, где работу ускоряет ИИ, а отвечает человек. Сайты, Telegram-боты, автоматизация, Excel и 1С, 3D-детали, ролики. Цена и срок до начала работы.">
+<meta property="og:title" content="Гуманетрия — мастерская Фомы">
+<meta property="og:description" content="Сайты, боты, автоматизация, 3D. Цена и срок — до начала работы.">
+<meta property="og:image" content="./assets/img/hero-1400.webp">
+<link rel="icon" href="./assets/img/favicon.png">
+<link rel="preload" href="./assets/fonts/Literata-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/Onest-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./style.css?v=3">
+<script type="importmap">
+{"imports":{"three":"/assets/vendor/three/three.module.js","three/addons/":"/assets/vendor/three/"}}
+</script>
+<link rel="canonical" href="https://gumanetriya.ru/">
+<link rel="stylesheet" href="/fix.css?v=1">
+<link rel="stylesheet" href="/vitrina4.css?v=1">
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+<canvas id="bot" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Гуманетрия, в начало">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect x="5" y="9" width="22" height="17" rx="5" fill="currentColor"/><path d="M16 9V4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="3.4" r="2.2" fill="var(--apricot)"/><path d="M11 17.5q1.6-2 3.2 0M17.8 17.5q1.6-2 3.2 0" stroke="var(--ink)" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    <span>Гуманетрия</span>
+  </a>
+  <nav aria-label="Разделы">
+    <a href="#uslugi">Услуги</a>
+    <a href="#schet">Прикинуть цену</a>
+    <a href="#put">Как работаем</a>
+    <a href="#primery">Примеры</a>
+    <a href="#multiki">Мультики</a>
+  </nav>
+  <a class="btn hdr-cart" href="oplata.html#korzina" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.5l2.2 11h10.6l2-8H6.4"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg><span>Корзина</span><b class="hc-n" hidden></b></a>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="hero__sky" aria-hidden="true"></div>
+  <div class="hero__floor" aria-hidden="true"><i></i></div>
+  <div class="hero__fog" aria-hidden="true"></div>
+  <div class="hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="dot"></span>Мастерская открыта · заявки круглосуточно</p>
+      <h1 class="hero__title">
+        <span class="line"><span>Работу ускоряет ИИ.</span></span>
+        <span class="line"><span>Отвечает <em>человек.</em></span></span>
+      </h1>
+      <p class="hero__lead">Сайты, боты и автоматизация для малого дела. Цена и срок — до начала работы.</p>
+      <div class="hero__cta">
+        <a class="btn btn--big magnet" href="oplata.html">Выбрать и оплатить</a>
+        <a class="btn btn--ghost" href="#chat-foma" data-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Описать задачу</span></a>
+      </div>
+      <ul class="hero__facts">
+        <li><b>10</b><span>услуг с ценой</span></li>
+        <li><b>3</b><span>оплатить сразу</span></li>
+        <li><b>24/7</b><span>приём заказов</span></li>
+      </ul>
+    </div>
+    <div class="hero__stage">
+      <div class="stage" id="stage">
+        <div class="slot" data-slot="hero"></div>
+        <div class="stage__plate" aria-hidden="true"></div>
+        <p class="stage__tag"><b>Это Фома.</b> Идёт с вами по странице. Есть вопрос — нажмите на него в углу.</p>
+        <div class="chip chip--a par" data-d="26" aria-hidden="true">Бот ответил клиенту · 02:14</div>
+        <div class="chip chip--b par" data-d="-34" aria-hidden="true">Заявка → таблица → Telegram</div>
+        <div class="chip chip--c par" data-d="18" aria-hidden="true">Сайт сдан · принято</div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__run">
+      <span>Сторож сайта</span><i></i><span>Боты с ИИ</span><i></i><span>n8n</span><i></i><span>Отзывы WB</span><i></i><span>Сканы в Excel</span><i></i><span>Видео для WB и Ozon</span><i></i><span>Платные каналы</span><i></i><span>1С в мессенджер</span><i></i><span>Сопровождение</span><i></i><span>Время специалиста</span><i></i>
+      <span>Сторож сайта</span><i></i><span>Боты с ИИ</span><i></i><span>n8n</span><i></i><span>Отзывы WB</span><i></i><span>Сканы в Excel</span><i></i><span>Видео для WB и Ozon</span><i></i><span>Платные каналы</span><i></i><span>1С в мессенджер</span><i></i><span>Сопровождение</span><i></i><span>Время специалиста</span><i></i>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="uslugi">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Верстак</p>
+      <h2>Десять услуг <br>с ценой на сайте</h2>
+      <p class="head__note">Цена «от» — как в каталоге. Три услуги оплачиваются сразу, остальные — после того, как обсудим задачу.</p>
+    </div>
+    <div class="bento bento--10">
+      <article data-price="2 990" class="card card--xl tilt rv" style="--c:var(--apricot)">
+        <span class="card__n">01</span><span class="card__pay card__pay--now">оплата сразу</span>
+        <h3>Сторож сайта и почты</h3>
+        <p>Сайт перестал открываться — сообщение за 5 минут. За 30 дней предупредит о конце домена. Важные письма — в мессенджер.</p>
+        <div class="card__art card__art--site" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+        <footer><strong>от 2 990 ₽</strong><span>1 день</span></footer>
+        <a class="card__go" href="oplata.html?u=kstor" aria-label="Сторож сайта и почты: открыть и заказать"></a>
+      </article>
+      <article data-price="8 000" class="card card--tall tilt rv" style="--c:var(--teal)">
+        <span class="card__n">02</span><span class="card__pay">сначала обсудим</span>
+        <h3>Бот с ИИ по вашей базе</h3>
+        <p>Отвечает клиентам по вашим документам и прайсу. Сложное передаёт вам.</p>
+        <div class="card__art card__art--chat" aria-hidden="true"><i>Сколько стоит?</i><i>По прайсу — от 600 ₽</i><i>Беру</i></div>
+        <footer><strong>от 8 000 ₽</strong><span>5 дней</span></footer>
+        <a class="card__go" href="oplata.html?u=ai" aria-label="Бот с ИИ по вашей базе: открыть и заказать"></a>
+      </article>
+      <article data-price="5 000" class="card  tilt rv" style="--c:var(--sage)">
+        <span class="card__n">03</span><span class="card__pay">сначала обсудим</span>
+        <h3>Автоматизация на n8n</h3>
+        <p>Заявки с сайта, ВК, Авито и почты — в одну таблицу или чат, без дублей.</p>
+        <footer><strong>от 5 000 ₽</strong><span>1–3 дня</span></footer>
+        <a class="card__go" href="oplata.html?u=n8n" aria-label="Автоматизация на n8n: открыть и заказать"></a>
+      </article>
+      <article data-price="5 000" class="card  tilt rv" style="--c:var(--rose)">
+        <span class="card__n">04</span><span class="card__pay">сначала обсудим</span>
+        <h3>Ответы на отзывы WB</h3>
+        <p>Нейросеть пишет ответы в тоне вашего бренда. Первый месяц входит.</p>
+        <footer><strong>от 5 000 ₽</strong><span>3 дня</span></footer>
+        <a class="card__go" href="oplata.html?u=wb" aria-label="Ответы на отзывы WB: открыть и заказать"></a>
+      </article>
+      <article data-price="500" class="card card--wide tilt rv" style="--c:var(--wood)">
+        <span class="card__n">05</span><span class="card__pay card__pay--now">оплата сразу</span>
+        <h3>Скан или PDF в Excel и Word</h3>
+        <p>Переносим таблицы со сканов в редактируемый файл. До 10 страниц.</p>
+        <div class="card__art card__art--table" aria-hidden="true"><i></i><i></i><i class="hit"></i><i></i><i></i><i class="hit"></i><i></i><i></i></div>
+        <footer><strong>от 500 ₽</strong><span>1 день</span></footer>
+        <a class="card__go" href="oplata.html?u=scan" aria-label="Скан или PDF в Excel и Word: открыть и заказать"></a>
+      </article>
+      <article data-price="490" class="card card--wide tilt rv" style="--c:var(--teal)">
+        <span class="card__n">06</span><span class="card__pay card__pay--now">оплата сразу</span>
+        <h3>Видео к карточке WB и Ozon</h3>
+        <p>Ролик 5–10 секунд из фото товара. Две правки входят.</p>
+        <footer><strong>от 490 ₽</strong><span>1 день</span></footer>
+        <a class="card__go" href="oplata.html?u=video" aria-label="Видео к карточке WB и Ozon: открыть и заказать"></a>
+      </article>
+      <article data-price="6 000" class="card  tilt rv" style="--c:var(--apricot)">
+        <span class="card__n">07</span><span class="card__pay">сначала обсудим</span>
+        <h3>Бот для платного канала</h3>
+        <p>Оплата, личная ссылка, напоминание о продлении. Деньги сразу вам.</p>
+        <footer><strong>от 6 000 ₽</strong><span>4 дня</span></footer>
+        <a class="card__go" href="oplata.html?u=kanal" aria-label="Бот для платного канала: открыть и заказать"></a>
+      </article>
+      <article data-price="9 000" class="card  tilt rv" style="--c:var(--sage)">
+        <span class="card__n">08</span><span class="card__pay">сначала обсудим</span>
+        <h3>Уведомления из 1С</h3>
+        <p>Заказы и оплаты из 1С — сразу в мессенджер, сводка в 9:00.</p>
+        <footer><strong>от 9 000 ₽</strong><span>1–3 дня</span></footer>
+        <a class="card__go" href="oplata.html?u=k1c" aria-label="Уведомления из 1С: открыть и заказать"></a>
+      </article>
+      <article data-price="2 990" class="card  tilt rv" style="--c:var(--rose)">
+        <span class="card__n">09</span><span class="card__pay">сначала обсудим</span>
+        <h3>Сопровождение</h3>
+        <p>Следим, чтобы боты и автоматизации работали. Мелкие доработки входят.</p>
+        <footer><strong>от 2 990 ₽</strong><span>в месяц</span></footer>
+        <a class="card__go" href="oplata.html?u=sopr" aria-label="Сопровождение: открыть и заказать"></a>
+      </article>
+      <article data-price="1 500" class="card  tilt rv" style="--c:var(--wood)">
+        <span class="card__n">10</span><span class="card__pay">сначала обсудим</span>
+        <h3>Время специалиста</h3>
+        <p>Час, пакет или сутки работы над вашей задачей.</p>
+        <footer><strong>от 1 500 ₽</strong><span>за час</span></footer>
+        <a class="card__go" href="oplata.html?u=chas" aria-label="Время специалиста: открыть и заказать"></a>
+      </article>
+    </div>
+    <p class="bento__more rv">Сайты, чертежи и 3D, схемы — тоже делаем, цену назовём после описания. <a href="#chat-foma" data-chat>Описать задачу в чате</a></p>
+  </div>
+</section>
+
+<section class="sec sec--ink calc" id="schet">
+  <div class="wrap calc__grid">
+    <div class="calc__left">
+      <p class="kicker kicker--light">Спросите Фому</p>
+      <h2>Отметьте, что нужно. <br>Он посчитает.</h2>
+      <div class="chips" id="chips" role="group" aria-label="Выберите услуги">
+        <button type="button" class="pick" data-p="8000" aria-pressed="false">Сайт или лендинг</button>
+        <button type="button" class="pick" data-p="5000" aria-pressed="false">Telegram-бот</button>
+        <button type="button" class="pick" data-p="10000" aria-pressed="false">ИИ-помощник</button>
+        <button type="button" class="pick" data-p="5000" aria-pressed="false">Автоматизация и CRM</button>
+        <button type="button" class="pick" data-p="500" aria-pressed="false">Excel и 1С</button>
+        <button type="button" class="pick" data-p="1500" aria-pressed="false">3D-модель</button>
+        <button type="button" class="pick" data-p="500" aria-pressed="false">Схема</button>
+        <button type="button" class="pick" data-p="1000" aria-pressed="false">Ролик</button>
+      </div>
+    </div>
+    <div class="calc__right">
+      <div class="slot slot--calc" data-slot="calc"></div>
+      <div class="bill" aria-live="polite">
+        <p class="bill__label">Фома считает</p>
+        <p class="bill__sum"><span>от</span> <output id="sum">0</output> <span>₽</span></p>
+        <p class="bill__list" id="list">Пока ничего не выбрано</p>
+        <a class="btn btn--big" id="send" href="#chat-foma" data-chat>Обсудить в чате</a>
+        <p class="bill__fine">Оценка по стартовым ценам, не оферта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="scene" aria-label="Мастерская">
+  <div class="scene__frame" id="frame">
+    <picture>
+      <source media="(max-width:700px)" srcset="./assets/img/hero-800.webp">
+      <img src="./assets/img/hero-1400.webp" width="1400" height="933" alt="Фома пьёт кофе в мастерской, рядом в коробке сидит маленький робот" loading="lazy" decoding="async">
+    </picture>
+    <span class="scene__glare" aria-hidden="true"></span>
+    <blockquote class="scene__quote">ИИ ускоряет. <br>Человек проверяет.</blockquote>
+    <span class="scene__tag scene__tag--a" aria-hidden="true">мастерская, утро</span>
+    <span class="scene__tag scene__tag--b" aria-hidden="true">кадр из наших мультиков</span>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="put">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Как работаем</p>
+      <h2>Четыре шага <br>без сюрпризов</h2>
+    </div>
+    <div class="belt" id="belt">
+      <div class="belt__line" aria-hidden="true"><i id="belt-fill"></i><b id="belt-box"></b></div>
+      <ol class="belt__steps">
+        <li class="step"><span class="step__n">1</span><h3>Опишите задачу</h3><p>Своими словами, в чате на сайте.</p></li>
+        <li class="step"><span class="step__n">2</span><h3>Цена и срок</h3><p>Называем до начала работы.</p></li>
+        <li class="step"><span class="step__n">3</span><h3>Работа и проверка</h3><p>Человек проверяет каждый результат.</p></li>
+        <li class="step"><span class="step__n">4</span><h3>Сдача</h3><p>Файлы, инструкция и одна правка.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--sage" id="primery">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Примеры</p>
+      <h2>Вход, результат, проверка</h2>
+      <p class="head__note">Отзывов пока не показываем — их ещё нужно заслужить.</p>
+    </div>
+    <div class="tabs rv">
+      <div class="tabs__list" role="tablist" aria-label="Примеры работ">
+        <button role="tab" id="t1" aria-selected="true" aria-controls="p1">Заявка → таблица → Telegram</button>
+        <button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Сверка выписки с 1С</button>
+        <button role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">Бот мастерской «Объект»</button>
+      </div>
+      <div class="tabs__panels">
+        <article role="tabpanel" id="p1" aria-labelledby="t1" class="panel">
+          <figure><img src="./assets/img/ex-n8n.webp" width="900" height="675" alt="Схема сценария: заявка с сайта, запись в таблицу, условие, сообщения в Telegram и письмо" loading="lazy" decoding="async"></figure>
+          <div><span class="tag">Учебный пример</span>
+            <dl><dt>Вход</dt><dd>Заявка из формы сайта</dd><dt>Результат</dt><dd>Запись в таблицу, крупные заказы — менеджеру в Telegram, клиенту — письмо</dd><dt>Проверка</dt><dd>Каждый узел прогнан тестовой заявкой, есть ветка ошибок</dd></dl></div>
+        </article>
+        <article role="tabpanel" id="p2" aria-labelledby="t2" class="panel" hidden>
+          <figure><img src="./assets/img/ex-sverka.webp" width="1100" height="605" alt="Таблица сверки банковской выписки с 1С с отмеченными расхождениями" loading="lazy" decoding="async"></figure>
+          <div><span class="tag">Вымышленные данные</span>
+            <dl><dt>Вход</dt><dd>Выписка банка и карточка счёта 51</dd><dt>Результат</dt><dd>Таблица: что сошлось, где сдвиг даты, где расхождение</dd><dt>Проверка</dt><dd>42 строки банка против 43 в 1С, найдено 5 расхождений</dd></dl></div>
+        </article>
+        <article role="tabpanel" id="p3" aria-labelledby="t3" class="panel" hidden>
+          <figure><img src="./assets/img/ex-bot.webp" width="900" height="675" alt="Переписка с ботом мастерской: вопросы о цене печати и ответы по базе знаний" loading="lazy" decoding="async"></figure>
+          <div><span class="tag">Вымышленная мастерская</span>
+            <dl><dt>Вход</dt><dd>Прайс и правила мастерской</dd><dt>Результат</dt><dd>Бот отвечает про материалы, цены и сроки</dd><dt>Проверка</dt><dd>Вне прайса не выдумывает, а зовёт мастера</dd></dl></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--ink" id="multiki">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker kicker--light">Мастерская Фомы</p>
+      <h2>Мультики про наших роботов</h2>
+      
+    </div>
+    <div class="film rv">
+      <video controls preload="none" poster="./assets/img/vizitka-poster.webp" playsinline>
+        <source src="./assets/video/vizitka.mp4" type="video/mp4">
+      </video>
+      <p class="film__cap">Ролик-визитка. Сделан с помощью ИИ, проверен человеком.</p>
+    </div>
+  </div>
+  <div class="reel" aria-hidden="true">
+    <div class="reel__run">
+      <img src="./assets/img/m-v1_rest.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v1_scout.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v2_check.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v3_dawn.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v3_write.webp" alt="" loading="lazy" width="900" height="600">
+      <img src="./assets/img/m-v1_rest.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v1_scout.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v2_check.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v3_dawn.webp" alt="" loading="lazy" width="900" height="600"><img src="./assets/img/m-v3_write.webp" alt="" loading="lazy" width="900" height="600">
+    </div>
+  </div>
+</section>
+
+<section class="poster" id="afisha">
+  <div class="wrap poster__in">
+    <p class="poster__small rv">Этот сайт собран в нашей мастерской</p>
+    <h2 class="poster__big rv">Хотите <br>такой же?</h2>
+    <p class="poster__price rv">от 8 000 ₽</p>
+    <a class="btn btn--big btn--dark magnet rv" href="#chat-foma" data-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Написать Фоме</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div>
+      <p class="foot__brand">Гуманетрия</p>
+      <p>Работаем письменно. Оплата на сайте по договору-оферте.</p><p class="ftr-doc"><a href="oferta.html">Договор-оферта</a> · <a href="politika.html">Политика конфиденциальности</a> · <a href="soglasie.html">Согласие на обработку данных</a> · <a href="oferta.html#rekvizity">Реквизиты исполнителя</a></p>
+      <p><a href="mailto:{{ПОЧТА_СВЯЗИ}}">{{ПОЧТА_СВЯЗИ}}</a></p>
+    </div>
+    <ul>
+      <li><a href="https://t.me/gumanetriya_ai" target="_blank" rel="noopener noreferrer">Telegram-лента</a></li>
+      <li><a href="https://t.me/gumanetriya_besedka" target="_blank" rel="noopener noreferrer">Беседка</a></li>
+      <li><a href="https://t.me/gumanetriya_3d" target="_blank" rel="noopener noreferrer">3D-канал</a></li>
+      <li><a href="https://vk.com/club242703612" target="_blank" rel="noopener noreferrer">ВКонтакте</a></li>
+      <li><a href="{{X_URL}}" target="_blank" rel="noopener noreferrer">X</a></li>
+      <li><a href="https://youtube.com/@gumanetriya" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      <li><a href="https://max.ru/se15096221_biz" target="_blank" rel="noopener noreferrer">Канал в MAX</a></li>
+    </ul>
+    <ul>
+      <li><a href="{{KWORK_URL}}" target="_blank" rel="noopener noreferrer">Kwork</a></li>
+      <li><a href="https://www.avito.ru/ekaterinburg/predlozheniya_uslug/telegram-boty_i_avtomatizatsiya_dlya_biznesa_8477381558" target="_blank" rel="noopener noreferrer">Авито</a></li>
+      <li><a href="https://app.lava.top/gumanetriya" target="_blank" rel="noopener noreferrer">Оплата картой за рубежом</a></li>
+      <li><a href="{{FL_URL}}" target="_blank" rel="noopener noreferrer">FL.ru</a></li>
+      <li><a href="https://t.me/gumanetriya_zakaz_bot" target="_blank" rel="noopener noreferrer">Бот заказов</a></li>
+      <li><a href="https://max.ru/se15096221_bot?start=sait" target="_blank" rel="noopener noreferrer">Бот заказов в MAX</a></li>
+      <li><a href="/oplata.html">Оплата</a></li>
+      <li><a href="/zakaz.html">Мой заказ</a></li>
+      <li><a href="/oferta.html">Оферта</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script type="module" src="./app.js?v=5"></script>
+<script src="/chat.js?v=18" defer></script>
+<script>(function(){try{var u="/hit?p="+encodeURIComponent(location.pathname)+"&r="+encodeURIComponent(document.referrer||"");if(navigator.sendBeacon)navigator.sendBeacon(u);else(new Image()).src=u}catch(e){}})();</script>
+<script src="/korzina.js?v=2" defer></script>
+</body>
+</html>

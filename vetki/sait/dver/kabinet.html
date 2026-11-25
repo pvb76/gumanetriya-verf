@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Мой кабинет · Мастерская Гуманет</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/css/site.css?v=20261115">
+<link rel="stylesheet" href="/fix.css?v=1">
+<link rel="stylesheet" href="/krasota.css?v=2">
+<style>
+.kb{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+.kb h1{font:600 clamp(30px,4vw,44px)/1.1 Literata,serif;margin:6px 0 6px;color:#31442a}
+.kb .who{color:#5d6559;margin:0 0 22px}
+.kg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.kc{background:#fffbee;border:1.5px solid #ddd3bf;border-radius:18px;padding:18px 20px}
+.kc h2{font:700 20px/1.2 Literata,serif;margin:0 0 10px;color:#31442a}
+.kc p{margin:0 0 10px}.kc .m{color:#5d6559;font-size:14px}
+.kc ul{margin:0;padding:0;list-style:none}.kc li{padding:8px 0;border-bottom:1px solid #ece3cf;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.kc input,.kc select{min-height:46px;padding:10px 12px;border:1.5px solid #ddd3bf;border-radius:12px;font:16px Onest,sans-serif;width:100%;background:#fff}
+.kb .b{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 16px;border-radius:12px;border:0;background:#31442a;color:#fffbee;font:600 15px Onest,sans-serif;cursor:pointer;text-decoration:none}
+.kb .b2{background:#fff;color:#31442a;border:1.5px solid #ddd3bf}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.row>*{flex:1 1 140px}
+.st{font:600 13px Onest,sans-serif;padding:3px 10px;border-radius:999px;background:#ece3cf}.st.ok{background:#d7ead9;color:#245a37}.st.no{background:#f3d6cf;color:#8a2b18}
+.adm{border-color:#b08d57;background:linear-gradient(180deg,#fffbee,#f7efdb)}
+.out{word-break:break-all;font:14px/1.4 ui-monospace,monospace;background:#fff;border:1px dashed #b08d57;border-radius:10px;padding:8px 10px;margin-top:8px}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Гуманетрия, на главную"><img src="assets/img/pechat.webp" alt="" width="40" height="40"><b>Гуманетрия</b></a>
+  <nav class="nav" aria-label="Разделы"><a href="index.html">Главная</a><a href="uslugi.html">Услуги и цены</a><a href="korobochki.html">Коробочки</a><a href="zakaz.html">Мой заказ</a></nav>
+  <a class="btn hdr-cart" href="oplata.html#korzina">Корзина</a>
+</div></header>
+<main class="kb" id="main">
+  <p class="eyebrow">Мой кабинет</p>
+  <h1 id="hi">Здравствуйте</h1>
+  <p class="who" id="who"></p>
+  <div class="kg">
+    <section class="kc"><h2>Мои заказы</h2><ul id="orders"><li class="m">Пока пусто. После оплаты заказ появится здесь сам.</li></ul>
+      <form id="addo" class="row"><input name="o" placeholder="номер заказа" aria-label="Номер заказа" autocomplete="off"><button class="b b2">Добавить</button></form><p class="m" id="addo-m"></p></section>
+    <section class="kc"><h2>Способы входа</h2><p class="m">Привяжите удобный способ — и входите в один клик.</p><div id="links" class="row"></div><p class="m" id="ids"></p></section>
+    <section class="kc"><h2>Дальше</h2><p><a class="b" href="uslugi.html">Выбрать услугу</a></p><p><a class="b b2" href="korobochki.html">Склад коробочек</a></p><p><a href="/dver/vyhod">Выйти из дома</a></p></section>
+    <section class="kc adm" id="adm" hidden><h2>Для хозяев</h2><div id="alinks" class="row"></div>
+      <p class="m" id="svodka"></p>
+      <form id="inv"><p class="m">Пригласить человека: ссылка работает один раз.</p>
+        <div class="row"><select name="role" aria-label="Кто"><option value="gost">гость</option><option value="semya">семья</option></select><select name="dney" aria-label="Срок"><option value="3">3 дня</option><option value="7" selected>7 дней</option><option value="30">30 дней</option></select></div>
+        <button class="b">Сделать приглашение</button><div class="out" id="invout" hidden></div></form></section>
+  </div>
+</main>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var STN={succeeded:['оплачен','ok'],pending:['ждёт оплаты',''],canceled:['отменён','no'],waiting_for_capture:['оплачен','ok']};
+  function post(u,d){return fetch(u,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(d||{})}).then(function(r){return r.json()})}
+  fetch('/dver/ya',{credentials:'same-origin'}).then(function(r){return r.json()}).then(function(j){
+    if(!j.ok){location.href='/vhod.html?next=/kabinet.html';return}
+    $('hi').textContent='Здравствуйте, '+j.name; $('who').textContent='Вы в доме как '+j.role_ru+'.'+(j.kind==='zakaz'?' Вход по номеру заказа: зарегистрируйтесь, чтобы видеть все заказы.':'');
+    var ul=$('orders'); if((j.orders||[]).length){ul.innerHTML='';j.orders.slice().reverse().forEach(function(o){
+      var li=document.createElement('li');li.innerHTML='<a href="zakaz.html?o='+esc(o)+'">'+esc(o)+'</a><span class="st">…</span>';ul.appendChild(li);
+      fetch('https://n8n.gumanetriya.ru/webhook/sait-status?o='+encodeURIComponent(o)).then(function(r){return r.json()}).then(function(s){var x=STN[s.status]||[s.ok?s.status:'не найден','no'];var e=li.querySelector('.st');e.textContent=x[0]+(s.sum?' · '+s.sum+' ₽':'');e.className='st '+x[1]}).catch(function(){})})}
+    if(j.kind==='user'){var L={yandex:'Яндекс ID',vk:'VK ID',google:'Google'};
+      $('ids').textContent='Привязано: '+(j.ids||[]).map(function(i){return{login:'логин',yandex:'Яндекс',vk:'VK',google:'Google',tg:'Telegram'}[i]||i}).join(', ');
+      fetch('/dver/zdorov').then(function(r){return r.json()}).then(function(z){(z.sposoby||[]).forEach(function(p){if(!L[p]||(j.ids||[]).indexOf(p)>=0)return;var a=document.createElement('a');a.className='b b2';a.href='/dver/oauth/'+p+'/start?next=/kabinet.html';a.textContent='+ '+L[p];$('links').appendChild(a)})})}
+    else $('links').innerHTML='<a class="b" href="/vhod.html?next=/kabinet.html">Зарегистрироваться</a>';
+    if(j.admin){$('adm').hidden=false;(j.links||[]).forEach(function(l){var a=document.createElement('a');a.className='b b2';a.href=l.u;a.textContent=l.t;$('alinks').appendChild(a)});
+      post('/dver/admin/svodka').then(function(s){if(s.ok)$('svodka').textContent='В доме '+s.lyudey+' учёток, из них гостей '+s.gostey+'; открытых входов '+s.seansov+'.'})}
+  });
+  $('addo').addEventListener('submit',function(e){e.preventDefault();post('/dver/zakaz',{o:this.o.value}).then(function(j){$('addo-m').textContent=j.ok?'Добавлен.':j.err;if(j.ok)setTimeout(function(){location.reload()},600)})});
+  $('inv').addEventListener('submit',function(e){e.preventDefault();post('/dver/admin/priglas',{role:this.role.value,dney:this.dney.value}).then(function(j){var o=$('invout');o.hidden=false;o.textContent=j.ok?j.link+'  ('+j.role_ru+', '+j.dney+' дн.)':(j.err||'не вышло')})});
+})();
+</script>
+<script src="/dver.js?v=2" defer></script>
+<script src="/chat.js?v=18" defer></script>
+</body>
+</html>

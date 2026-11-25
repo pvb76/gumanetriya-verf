@@ -1,0 +1,21 @@
+/* Витрина v4, 25.11: 10 услуг на главной, вся карточка — ссылка на оплату; факты героя на телефоне в ряд. */
+.bento--10{grid-auto-flow:dense}
+.bento--10 .card--wide{grid-column:span 2}
+.card__go{position:absolute;inset:0;z-index:3;border-radius:inherit}
+.card__go:focus-visible{outline:3px solid var(--orange,#f0a868);outline-offset:3px}
+.card__pay{align-self:flex-start;font-size:13px;font-weight:600;letter-spacing:.02em;padding:3px 10px;border-radius:99px;background:rgba(49,68,42,.08);color:inherit;opacity:.85}
+.card__pay--now{background:var(--apricot,#f0a868);color:#1b2617;opacity:1}
+.card--xl .card__pay{background:rgba(255,249,236,.14)}.card--xl .card__pay--now{background:var(--orange2,#f0a868);color:#1b2617}
+.card footer strong{white-space:nowrap}
+.bento__more{margin-top:22px;font-size:17px}
+.bento__more a{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1000px){.bento--10 .card--wide{grid-column:span 2}}
+@media (max-width:600px){
+ .bento--10 .card--wide{grid-column:auto}
+ .card__pay{font-size:16px}
+ .hero__facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:calc(100% - 120px)}
+ .hero__facts li:nth-child(3){display:none} /* «круглосуточно» уже в плашке сверху; справа стоит Фома */
+ .hero__facts li{padding-left:10px}
+ .hero__facts b{font-size:1.4rem}
+ .hero__cta{margin:26px 0 26px}
+}

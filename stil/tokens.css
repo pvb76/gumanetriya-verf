@@ -1,0 +1,36 @@
+/* Гуманетрия: токены v2 «Верфь на рассвете» (25.11.2026) для сайта, бюро и штурманской. v1 сохранены, добавлены ночь, латунь, сургуч, тени и штампы. */
+@font-face{font-family:Onest;src:url(https://gumanetriya.ru/assets/fonts/Onest-normal-cyrillic.woff2) format("woff2");font-weight:100 900;unicode-range:U+0400-04FF,U+2116}
+@font-face{font-family:Onest;src:url(https://gumanetriya.ru/assets/fonts/Onest-normal-latin.woff2) format("woff2");font-weight:100 900;unicode-range:U+0000-00FF,U+20BD}
+@font-face{font-family:Literata;src:url(https://gumanetriya.ru/assets/fonts/Literata-normal-cyrillic.woff2) format("woff2");font-weight:200 900;unicode-range:U+0400-04FF,U+2116}
+@font-face{font-family:Literata;src:url(https://gumanetriya.ru/assets/fonts/Literata-normal-latin.woff2) format("woff2");font-weight:200 900;unicode-range:U+0000-00FF,U+20BD}
+:root{
+  --ink:#131a11; --text:#1a2216; --muted:#5d6652;
+  --moss:#31442a; --olive:#7b8c45; --olive2:#a3b46a; --sage:#bccaa3; --mist:#e3ead4;
+  --paper:#f5f2e3; --paper2:#ebe6cf; --cream:#fffbee;
+  --apricot:#f0a868; --apricot2:#ffd6a8; --clay:#b9673c; --teal:#7fb5a5; --rose:#dba59c;
+  --danger:#c0392b;
+  /* v2 */
+  --night:#142019; --moss-d:#26371f; --brass:#b08d57; --wax:#7a2430; --line:#ddd3bf;
+  --sh-1:0 1px 0 rgba(255,255,255,.7) inset,0 14px 30px -22px rgba(20,32,25,.55); --sh-2:0 40px 80px -36px rgba(0,0,0,.8);
+  --t-hero:clamp(34px,4.3vw,56px); --t-h2:clamp(22px,2.2vw,28px); --t-body:17px; --t-small:13.5px;
+  --s-1:8px; --s-2:12px; --s-3:16px; --s-4:24px; --s-5:40px; --r-s:8px; --r-btn:14px;
+  --tap:44px;
+  --font-text:Onest,system-ui,sans-serif; --font-head:Literata,Georgia,serif;
+  --r-card:18px; --r-box:22px; --r-pill:99px;
+}
+body{background:var(--paper);color:var(--text);font:17px/1.5 var(--font-text)}
+h1,h2,h3{font-family:var(--font-head);color:var(--moss);line-height:1.2}
+.btn{font:600 15px var(--font-text);padding:10px 16px;border-radius:var(--r-pill);border:0;background:var(--moss);color:var(--cream)}
+.btn.alt{background:var(--apricot);color:var(--ink)}
+.card{background:var(--cream);border-radius:var(--r-card);border:1px solid rgba(26,34,22,.12);padding:14px 16px}
+.say{background:var(--cream);border-left:6px solid var(--apricot);border-radius:12px;padding:10px 14px}
+
+/* v2: компоненты */
+.stamp{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border:1.5px solid rgba(185,103,60,.55);border-radius:6px;color:var(--clay);font:600 12px/1 var(--font-text);letter-spacing:.16em;text-transform:uppercase;transform:rotate(-1.2deg)}
+.stamp::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--clay)}
+.label{display:inline-block;padding:4px 7px;border:1.5px solid var(--wax);border-radius:4px;color:var(--wax);font:700 10.5px/1 var(--font-text);letter-spacing:.14em;text-transform:uppercase;transform:rotate(4deg)}
+.hand{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9c30-6 62-7 96-4s66 4 98-2' fill='none' stroke='%23f0a868' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") left bottom/100% .28em no-repeat;font-style:italic;color:var(--clay)}
+.shelf{position:relative;padding:16px 16px 26px;border-radius:18px;background:var(--cream)}.shelf::after{content:"";position:absolute;left:8px;right:8px;bottom:6px;height:12px;border-radius:4px;background:linear-gradient(180deg,#a7774a,#7d5532)}
+.box-kit{border:1.5px solid #d9c49c;border-radius:12px;background:#fff8e6;box-shadow:0 2px 0 #c9b083,var(--sh-1)}
+.night{background:var(--night);color:var(--cream)}.night a{color:#f3e6c9}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

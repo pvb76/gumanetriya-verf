@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /byuro/
+Allow: /
+Sitemap: https://gumanetriya.ru/sitemap.xml

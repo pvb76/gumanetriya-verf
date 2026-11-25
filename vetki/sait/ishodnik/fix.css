@@ -1,0 +1,88 @@
+/* Гуманетрия, 25.11: телефон 375 px — без горизонтальной прокрутки, текст не мельче 16 px. Подключается последним на всех страницах. */
+html,body{overflow-x:clip}
+[hidden]{display:none!important}
+.hdr .wrap{min-width:0}
+.hero__cta .btn>svg,.poster .btn>svg,a.btn[data-chat]>svg{width:20px;height:20px;flex:none}
+@media (max-width:600px){
+.eyebrow,
+.btn:not(.btn--big),
+.hero__facts span,
+.stage__tag,
+.chip,
+.kicker,
+.card__n,
+.card p,
+.card__art--chat i,
+.card footer span,
+.pick,
+.bill__label,
+.bill__list,
+.bill__fine,
+.scene__tag,
+.step p,
+.tabs__list button,
+.tag,
+.panel dt,
+.film__cap,
+.poster__small,
+.foot,
+body.has-bot .fc-pill,
+.fc-head span,
+.fc-note,
+.brand b,
+.hdr .lang,
+.sc-pr span,
+.ftr,
+.ftr h4,
+.ftr-g,
+.fc-pill,
+.sh-sample small,
+.sh-tag,
+.sh-sum small,
+.sh-who label,
+ .sh-ta label,
+.sh-ok,
+.pm-b small,
+.sh-note,
+.ptable,
+.svc-detail .meta,
+.guar span,
+.draft,
+.plan .price span,
+.plan ul,
+.plan-sup,
+.box .num,
+.status,
+.box .sub,
+.box-k,
+.chips.sm li,
+.box-sup,
+.box .gift,
+.princ p,
+.chips li,
+.slot span,
+.chan p,
+.host .role,
+.host p,
+.steps p,
+.trio dt,
+.trio,
+.ai-note,
+.ep p,
+.ep .where,
+.facts,
+.scene figcaption,
+.svc .num,
+.svc p,
+.price span,
+.uses{font-size:16px!important}
+.eyebrow,.kicker,.bill__label,.box .num,.status,.box-k,.host .role,.trio dt,.panel dt,.ftr h4,.sh-sample small{letter-spacing:.06em!important}
+.hdr .wrap{gap:8px;padding-left:14px;padding-right:14px}
+.hdr .brand{min-width:0;gap:8px}
+.hdr .brand img{width:34px;height:34px}
+.hdr .brand b{letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hdr .lang{padding:6px 9px;margin-right:0}
+.hdr .btn.hdr-cart{padding:8px 10px}
+.hdr .burger{flex:none}
+.ptable{display:block;overflow-x:auto}
+}

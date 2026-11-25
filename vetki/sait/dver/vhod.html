@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Вход в дом · Мастерская Гуманет</title>
+<meta name="description" content="Мастерская Гуманет: сайты, боты и автоматизация для малого дела. Вход по записи: регистрация, приглашение или номер заказа.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#142019">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/Literata-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Onest-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Literata;src:url(/assets/fonts/Literata-normal-cyrillic.woff2) format("woff2");font-weight:200 900;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Literata;src:url(/assets/fonts/Literata-normal-latin.woff2) format("woff2");font-weight:200 900;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Literata;font-style:italic;src:url(/assets/fonts/Literata-italic-cyrillic.woff2) format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:Onest;src:url(/assets/fonts/Onest-normal-cyrillic.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;src:url(/assets/fonts/Onest-normal-latin.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F}
+:root{--night:#142019;--night2:#1c2b20;--moss:#31442a;--moss6:#4a6340;--cream:#fffbee;--paper:#f5f2e3;--apricot:#f0a868;--apricot-d:#c9783c;--clay:#b9673c;--brass:#b08d57;--ink:#1b211c;--muted:#5d6559;--line:#ddd3bf;--ok:#2f6f4f;--bad:#a3341f;
+--serif:Literata,Georgia,serif;--sans:Onest,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}[hidden]{display:none!important}html,body{margin:0;min-height:100%}
+body{font:17px/1.55 var(--sans);color:var(--cream);background:var(--night);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:9;background:var(--cream);color:var(--ink);padding:8px 12px;border-radius:8px}
+/* сцена */
+.scene{position:fixed;inset:0;z-index:0;pointer-events:none;
+background:radial-gradient(38% 46% at 74% 46%,rgba(240,168,104,.30),transparent 70%),radial-gradient(60% 50% at 20% 0%,rgba(74,99,64,.55),transparent 70%),linear-gradient(180deg,#101a14 0%,#142019 55%,#0f1712 100%)}
+.scene::after{content:"";position:absolute;inset:0;opacity:.18;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .95 0 0 0 0 .85 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.floor{position:absolute;left:-20%;right:-20%;bottom:0;height:38%;perspective:600px;mask-image:linear-gradient(180deg,transparent,#000 50%);-webkit-mask-image:linear-gradient(180deg,transparent,#000 50%)}
+.floor i{position:absolute;inset:0;transform:rotateX(66deg);transform-origin:50% 0;background-image:linear-gradient(rgba(188,202,163,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(188,202,163,.16) 1px,transparent 1px);background-size:68px 68px}
+.wrap{position:relative;z-index:1;min-height:100dvh;display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;max-width:1240px;margin:0 auto;padding:clamp(18px,3vw,40px) clamp(16px,3vw,40px) 40px}
+/* шапка */
+.top{grid-column:1/-1;min-width:0;display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand b{font:700 20px/1 var(--serif);letter-spacing:.06em}
+.brand small{display:block;font:600 11px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#c9d3b4;margin-top:4px}
+.stamp{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1.5px solid rgba(240,168,104,.55);border-radius:999px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--apricot)}
+.stamp i{width:7px;height:7px;border-radius:50%;background:var(--apricot);box-shadow:0 0 0 4px rgba(240,168,104,.18)}
+/* левая колонка */
+.lead{min-width:0}.lead h1{font:600 clamp(34px,4.3vw,56px)/1.04 var(--serif);margin:10px 0 12px;letter-spacing:-.01em}
+.lead h1 em{font-style:italic;font-weight:500;color:var(--apricot);position:relative;white-space:nowrap}
+.lead h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-.08em;height:.22em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9c30-6 62-7 96-4s66 4 98-2' fill='none' stroke='%23f0a868' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.lead p.sub{margin:0 0 22px;color:#d9dfcc;font-size:clamp(16px,1.25vw,18.5px);max-width:34em}
+/* хозяева */
+.hosts{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 22px}
+.host{display:flex;align-items:center;gap:12px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,251,238,.06);border:1px solid rgba(255,251,238,.14)}
+.host .ph{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;overflow:hidden;background:#24331f;border:2px solid var(--brass);font:700 20px/1 var(--serif);color:var(--apricot)}
+.host .ph img{width:140%;height:140%;object-fit:cover;object-position:50% 22%}
+.host b{display:block;font:600 15px/1.2 var(--sans)}.host span{font-size:13px;color:#c2cbb0}
+/* карточка входа: гостевая книга */
+.book{position:relative;background:var(--cream);color:var(--ink);border-radius:22px;padding:22px clamp(18px,2.4vw,28px) 20px;box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 40px 80px -36px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.05);
+background-image:linear-gradient(transparent 0 calc(100% - 1px),rgba(49,68,42,.05) 0);background-size:100% 30px}
+.book::before{content:"";position:absolute;left:18px;right:18px;top:-7px;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--clay),var(--apricot));opacity:.9}
+.tabs{display:flex;gap:4px;padding:4px;background:var(--paper);border-radius:14px;margin:4px 0 16px;overflow-x:auto;scrollbar-width:none}
+.tabs button{flex:1 0 auto;min-height:44px;padding:8px 12px;border:0;border-radius:11px;background:transparent;font:600 14.5px/1.1 var(--sans);color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 2px 8px -3px rgba(0,0,0,.25)}
+.pane{display:none}.pane.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.soc{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:8px;margin:0 0 12px}
+.soc a,.soc .tgw{display:flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:8px 12px;border-radius:12px;text-decoration:none;font:600 15px/1 var(--sans);border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.soc a:hover{border-color:var(--moss6)}
+.soc .ya{background:#fff;}.soc .ya svg{color:#fc3f1d}.soc .vk svg{color:#0077ff}
+.or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;margin:6px 0 12px}.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+label.f{display:block;margin:0 0 10px;font:600 14px/1.3 var(--sans);color:var(--moss)}
+label.f input{display:block;width:100%;margin-top:5px;min-height:48px;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font:16px/1.3 var(--sans);color:var(--ink)}
+label.f input:focus{outline:none;border-color:var(--moss6);box-shadow:0 0 0 4px rgba(74,99,64,.16)}
+label.f small{display:block;font-weight:400;color:var(--muted);margin-top:4px;font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:6px 0 12px;font-size:14px;color:var(--ink);cursor:pointer}
+.chk input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--moss)}
+.go{width:100%;min-height:52px;border:0;border-radius:14px;background:var(--moss);color:var(--cream);font:700 16.5px/1 var(--sans);cursor:pointer;box-shadow:0 10px 24px -12px rgba(49,68,42,.9);transition:transform .1s,background .15s}
+.go:hover{background:#26371f}.go:active{transform:scale(.99)}.go[disabled]{opacity:.6;cursor:wait}
+.msg{min-height:22px;margin:10px 0 0;font-size:14.5px}.msg.bad{color:var(--bad)}.msg.ok{color:var(--ok)}
+.small{font-size:13.5px;color:var(--muted);margin:12px 0 0}.small a{color:var(--moss);text-underline-offset:3px}
+.lnk{background:none;border:0;padding:0;font:inherit;color:var(--moss);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.hp{position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden}
+/* правая колонка: дверь */
+.door{position:relative;justify-self:center;width:min(100%,460px);aspect-ratio:3/4}
+.door svg{width:100%;height:100%;display:block;overflow:visible}
+.door .glow{animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.75}50%{opacity:1}}
+.door .leaf{transform-origin:118px 60px;animation:open 1.8s .25s cubic-bezier(.2,.7,.2,1) both}
+@keyframes open{from{transform:perspective(900px) rotateY(0)}to{transform:perspective(900px) rotateY(-26deg)}}
+.plate{position:absolute;left:50%;bottom:5%;transform:translateX(-50%);text-align:center;width:max-content;max-width:100%}
+.plate b{display:inline-block;padding:7px 14px;border-radius:8px;background:#e9d9b4;color:#3b2b17;font:700 13px/1.1 var(--serif);letter-spacing:.12em;text-transform:uppercase;box-shadow:0 2px 0 #b08d57,0 8px 18px -8px rgba(0,0,0,.6)}
+.note{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;font-size:13.5px;color:#aeb8a0;border-top:1px solid rgba(255,251,238,.1);padding-top:16px}
+.note a{color:#d8dfc8;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.door .glow,.door .leaf,.pane.on{animation:none}.door .leaf{transform:perspective(900px) rotateY(-26deg)}}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:18px}.door{order:-1;width:min(62vw,260px);margin-top:-6px}.top{order:-2}.lead h1{margin-top:6px}.plate{bottom:2%}}
+@media (max-width:420px){.two{grid-template-columns:1fr}.lead h1{font-size:34px}.stamp{font-size:10.5px;padding:5px 10px}.brand small{display:none}.host{flex:1 1 100%}.hosts{gap:8px}.host{padding-right:12px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#book">К форме входа</a>
+<div class="scene" aria-hidden="true"><div class="floor"><i></i></div></div>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="/vhod.html" aria-label="Мастерская Гуманет">
+      <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#b08d57" stroke-width="1.5"/><circle cx="20" cy="20" r="14.5" fill="none" stroke="#b08d57" stroke-width=".8" stroke-dasharray="2 2"/><path d="M11 21.5 20 13l9 8.5" fill="none" stroke="#f0a868" stroke-width="2" stroke-linejoin="round"/><rect x="14" y="21" width="12" height="7.5" fill="none" stroke="#f0a868" stroke-width="2"/><rect x="18.4" y="23.6" width="3.2" height="4.9" fill="#f0a868"/></svg>
+      <span><b>ГУМАНЕТ</b><small>мастерская · верфь</small></span>
+    </a>
+    <span class="stamp"><i></i>дом открыт по записи</span>
+  </div>
+
+  <section class="lead" aria-labelledby="h1">
+    <h1 id="h1">Добро пожаловать в&nbsp;<em>дом</em></h1>
+    <p class="sub">Здесь люди и ИИ вместе делают сайты, ботов и автоматизацию для малого дела. Чтобы заказы и переписка не попали к чужим, мы пускаем по записи: регистрация, приглашение или номер заказа.</p>
+    <div class="hosts" aria-label="Кто в доме хозяин">
+      <div class="host"><span class="ph" aria-hidden="true">В</span><span><b>Капитан Владимир</b><span>хозяин дома, мастер</span></span></div>
+      <div class="host"><span class="ph" aria-hidden="true"><img src="/assets/img/hero-1400.webp" alt="" width="64" height="64" loading="eager"></span><span><b>Фома</b><span>помощник, отвечает сразу</span></span></div>
+    </div>
+
+    <div class="book" id="book">
+      <div class="tabs" role="tablist" aria-label="Как войти">
+        <button role="tab" id="t-vhod" aria-controls="p-vhod" aria-selected="true">Войти</button>
+        <button role="tab" id="t-reg" aria-controls="p-reg" aria-selected="false">Регистрация</button>
+        <button role="tab" id="t-zakaz" aria-controls="p-zakaz" aria-selected="false">Номер заказа</button>
+        <button role="tab" id="t-priglas" aria-controls="p-priglas" aria-selected="false">Приглашение</button>
+      </div>
+
+      <div class="soc" id="soc" hidden></div>
+      <div class="or" id="or" hidden>или</div>
+
+      <form class="pane on" id="p-vhod" role="tabpanel" aria-labelledby="t-vhod" data-api="/dver/vhod" novalidate>
+        <label class="f">Логин<input name="login" autocomplete="username" required autocapitalize="none" spellcheck="false"></label>
+        <label class="f">Пароль<input name="pw" type="password" autocomplete="current-password" required></label>
+        <label class="chk"><input type="checkbox" name="rem" checked> Запомнить меня на 30 дней</label>
+        <button class="go" type="submit">Войти в дом</button>
+        <p class="msg" role="status"></p>
+        <p class="small">Забыли пароль? <button type="button" class="lnk" data-open="p-vosst">Верну доступ по секретному слову</button></p>
+      </form>
+
+      <form class="pane" id="p-reg" role="tabpanel" aria-labelledby="t-reg" data-api="/dver/reg" novalidate>
+        <div class="two">
+          <label class="f">Как к вам обращаться<input name="name" autocomplete="given-name" maxlength="40"></label>
+          <label class="f">Логин<input name="login" autocomplete="username" required autocapitalize="none" spellcheck="false"><small>латиница, 3–40 знаков</small></label>
+        </div>
+        <div class="two">
+          <label class="f">Пароль<input name="pw" type="password" autocomplete="new-password" minlength="8" required><small>не короче 8 знаков</small></label>
+          <label class="f">Пароль ещё раз<input name="pw2" type="password" autocomplete="new-password" required></label>
+        </div>
+        <label class="f">Секретное слово<input name="word" autocomplete="off" required><small>Любое слово, которое знаете только вы. По нему вернёте доступ, если забудете пароль.</small></label>
+        <input type="hidden" name="code">
+        <span class="hp" aria-hidden="true"><input name="sayt" tabindex="-1" autocomplete="off"></span>
+        <label class="chk"><input type="checkbox" name="soglasie" required> <span>Согласен на <a href="/soglasie.html" target="_blank">обработку данных</a> и принимаю <a href="/politika.html" target="_blank">политику</a></span></label>
+        <label class="chk"><input type="checkbox" name="rem" checked> Запомнить меня на 30 дней</label>
+        <button class="go" type="submit">Зарегистрироваться и войти</button>
+        <p class="msg" role="status"></p>
+        <p class="small">Храним только логин, имя и хеш пароля. Почту и телефон не спрашиваем.</p>
+      </form>
+
+      <form class="pane" id="p-zakaz" role="tabpanel" aria-labelledby="t-zakaz" data-api="/dver/zakaz" novalidate>
+        <label class="f">Номер заказа<input name="o" autocomplete="off" required autocapitalize="none" spellcheck="false" placeholder="например, mwvdeg9492699v2u"><small>Он есть на странице после оплаты и в сообщении бота.</small></label>
+        <label class="chk"><input type="checkbox" name="rem" checked> Запомнить меня на 30 дней</label>
+        <button class="go" type="submit">Войти по номеру заказа</button>
+        <p class="msg" role="status"></p>
+      </form>
+
+      <form class="pane" id="p-priglas" role="tabpanel" aria-labelledby="t-priglas" data-api="/dver/priglas" novalidate>
+        <label class="f">Код приглашения<input name="code" autocomplete="off" required autocapitalize="none" spellcheck="false"><small>Его присылает мастер. Код работает один раз и недолго.</small></label>
+        <button class="go" type="submit">Проверить приглашение</button>
+        <p class="msg" role="status"></p>
+      </form>
+
+      <form class="pane" id="p-vosst" role="tabpanel" data-api="/dver/vosst" novalidate>
+        <label class="f">Логин<input name="login" autocomplete="username" required autocapitalize="none"></label>
+        <label class="f">Секретное слово<input name="word" autocomplete="off" required></label>
+        <div class="two">
+          <label class="f">Новый пароль<input name="pw" type="password" autocomplete="new-password" required></label>
+          <label class="f">Ещё раз<input name="pw2" type="password" autocomplete="new-password" required></label>
+        </div>
+        <label class="chk"><input type="checkbox" name="rem" checked> Запомнить меня на 30 дней</label>
+        <button class="go" type="submit">Сменить пароль и войти</button>
+        <p class="msg" role="status"></p>
+        <p class="small"><button type="button" class="lnk" data-open="p-vhod">Вернуться ко входу</button></p>
+      </form>
+    </div>
+  </section>
+
+  <div class="door" aria-hidden="true">
+    <svg viewBox="0 0 300 400">
+      <defs>
+        <radialGradient id="lg" cx="50%" cy="55%" r="60%"><stop offset="0" stop-color="#ffd59e"/><stop offset=".55" stop-color="#f0a868" stop-opacity=".55"/><stop offset="1" stop-color="#f0a868" stop-opacity="0"/></radialGradient>
+        <linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="#5a3a22"/><stop offset=".5" stop-color="#6e4829"/><stop offset="1" stop-color="#4b301c"/></linearGradient>
+        <linearGradient id="inside" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3b8"/><stop offset="1" stop-color="#f0a868"/></linearGradient>
+      </defs>
+      <ellipse class="glow" cx="150" cy="330" rx="150" ry="40" fill="url(#lg)"/>
+      <!-- арка и проём -->
+      <path d="M58 360V150a92 92 0 0 1 184 0v210" fill="#0d150f" stroke="#b08d57" stroke-width="5"/>
+      <path d="M70 358V152a80 80 0 0 1 160 0v206z" fill="url(#inside)"/>
+      <!-- вид внутрь: полки с коробочками -->
+      <g opacity=".55" fill="#c9783c">
+        <rect x="88" y="196" width="124" height="4" rx="2"/><rect x="88" y="252" width="124" height="4" rx="2"/><rect x="88" y="308" width="124" height="4" rx="2"/>
+        <rect x="96" y="172" width="26" height="24" rx="3"/><rect x="128" y="178" width="20" height="18" rx="3"/><rect x="156" y="168" width="30" height="28" rx="3"/>
+        <rect x="100" y="230" width="22" height="22" rx="3"/><rect x="130" y="226" width="34" height="26" rx="3"/><rect x="172" y="234" width="20" height="18" rx="3"/>
+        <rect x="94" y="288" width="30" height="20" rx="3"/><rect x="134" y="282" width="22" height="26" rx="3"/><rect x="164" y="290" width="28" height="18" rx="3"/>
+      </g>
+      <!-- створка -->
+      <g class="leaf">
+        <path d="M118 60h0" />
+        <path d="M70 358V152a80 80 0 0 1 80-80v286z" fill="url(#wood)" stroke="#2e1d10" stroke-width="2"/>
+        <path d="M84 340V160a66 66 0 0 1 52-64v244z" fill="none" stroke="#3a2614" stroke-width="2" opacity=".7"/>
+        <circle cx="138" cy="250" r="5" fill="#e9c27a" stroke="#7a5526"/>
+        <rect x="96" y="128" width="30" height="20" rx="3" fill="#e9d9b4" stroke="#b08d57"/><text x="111" y="142" font-size="9" text-anchor="middle" fill="#3b2b17" font-family="Literata,serif" font-weight="700">№1</text>
+      </g>
+      <!-- вешалка: театр начинается с неё -->
+      <g transform="translate(258 128)" stroke="#b08d57" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M0 0v232"/><path d="M-14 232h28"/><path d="M0 14c-10 0-14 6-14 12M0 14c10 0 14 6 14 12"/>
+      </g>
+      <g transform="translate(258 136)"><path d="M-18 6c2-10 34-10 36 0z" fill="#31442a" stroke="#1c2b20" stroke-width="1.5"/><rect x="-11" y="-6" width="22" height="12" rx="4" fill="#31442a" stroke="#1c2b20" stroke-width="1.5"/><rect x="-11" y="1" width="22" height="3" fill="#c9783c"/></g>
+      <!-- коврик -->
+      <rect x="92" y="362" width="116" height="12" rx="6" fill="#b9673c" opacity=".85"/>
+    </svg>
+    <div class="plate"><b>Мастерская Гуманет</b></div>
+  </div>
+
+  <div class="note">
+    <span>Мастерская Гуманет · с 2026 года · <a href="mailto:{{ПОЧТА_СВЯЗИ}}">{{ПОЧТА_СВЯЗИ}}</a></span>
+    <span><a href="/oferta.html">Договор-оферта</a> · <a href="/politika.html">Политика конфиденциальности</a> · <a href="/soglasie.html">Согласие на обработку данных</a> · <a href="/oferta.html#rekvizity">Реквизиты</a></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var q=new URLSearchParams(location.search), next=q.get('next')||'/';
+  if(!/^\/(?!\/)/.test(next)) next='/';
+  var tabs=[].slice.call(document.querySelectorAll('.tabs [role=tab]'));
+  function open(id){
+    document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id===id)});
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.getAttribute('aria-controls')===id?'true':'false')});
+    var soc=id==='p-vhod'||id==='p-reg'; document.getElementById('soc').hidden=!soc||!document.getElementById('soc').children.length; document.getElementById('or').hidden=document.getElementById('soc').hidden;
+    var f=document.querySelector('#'+id+' input:not([type=hidden]):not([type=checkbox])'); if(f&&matchMedia('(min-width:900px)').matches) f.focus({preventScroll:true});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){open(t.getAttribute('aria-controls'))})});
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){open(b.dataset.open)})});
+  function say(f,t,ok){var m=f.querySelector('.msg');m.textContent=t;m.className='msg '+(ok?'ok':'bad')}
+  document.querySelectorAll('form.pane').forEach(function(f){
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault(); var d={next:next}; new FormData(f).forEach(function(v,k){d[k]=v});
+      f.querySelectorAll('input[type=checkbox]').forEach(function(c){d[c.name]=c.checked});
+      var b=f.querySelector('.go'); b.disabled=true; say(f,'Проверяю…',true);
+      fetch(f.dataset.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d),credentials:'same-origin'})
+        .then(function(r){return r.json().catch(function(){return{ok:0,err:'Сервер не ответил. Попробуйте ещё раз.'}})})
+        .then(function(j){
+          b.disabled=false;
+          if(!j.ok){say(f,j.err||'Не получилось.',false);return}
+          if(f.id==='p-priglas'){var r=document.querySelector('#p-reg [name=code]');r.value=d.code;open('p-reg');
+            var lg=document.querySelector('#p-reg [name=login]'); if(j.login){lg.value=j.login;lg.readOnly=true}
+            say(document.getElementById('p-reg'),'Приглашение принято ('+j.role_ru+'). Осталось придумать пароль и секретное слово.',true);return}
+          say(f,'Дверь открыта. Проходите.',true); location.href=j.next||'/';
+        }).catch(function(){b.disabled=false;say(f,'Нет связи. Проверьте интернет и попробуйте ещё раз.',false)});
+    });
+  });
+  // способы входа
+  var NAMES={yandex:['Яндекс ID','<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M13.4 6h-1.3c-2.3 0-3.6 1.2-3.6 3.1 0 1.6.8 2.6 2.3 3.6L8.4 18h1.9l2.4-4.8h.7V18h1.7V6zm-.0 5.8h-.6c-1.3 0-2.1-.8-2.1-2.4 0-1.6.8-2.3 2.1-2.3h.6z" fill="#fff"/></svg>'],
+    vk:['VK ID','<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M12.8 16.6c-4.6 0-7.2-3.1-7.3-8.3h2.3c.1 3.8 1.8 5.4 3.1 5.7V8.3h2.2v3.3c1.3-.1 2.6-1.6 3.1-3.3h2.1c-.4 2-1.9 3.5-2.9 4.1 1.1.5 2.8 1.8 3.4 4.2h-2.4c-.5-1.6-1.8-2.8-3.4-3v3h-.2z" fill="#fff"/></svg>'],
+    google:['Google','<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z" fill="#34A853"/><path d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2z" fill="#FBBC05"/><path d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10C7.2 7.7 9.4 6 12 6z" fill="#EA4335"/></svg>']};
+  fetch('/dver/ya',{credentials:'same-origin'}).then(function(r){return r.json()}).then(function(j){
+    if(j.ok){location.replace(next);return}
+    var soc=document.getElementById('soc');
+    (j.sposoby||[]).forEach(function(p){
+      if(p==='telegram'){var s=document.createElement('script');s.async=true;s.src='https://telegram.org/js/telegram-widget.js?22';
+        s.setAttribute('data-telegram-login',j.tg_bot);s.setAttribute('data-size','large');s.setAttribute('data-radius','12');
+        s.setAttribute('data-auth-url',location.origin+'/dver/tg?next='+encodeURIComponent(next));s.setAttribute('data-request-access','write');
+        var w=document.createElement('div');w.className='tgw';w.appendChild(s);soc.appendChild(w);return}
+      var a=document.createElement('a');a.className=p;a.href='/dver/oauth/'+p+'/start?rem=1&next='+encodeURIComponent(next);a.innerHTML=NAMES[p][1]+'<span>'+NAMES[p][0]+'</span>';soc.appendChild(a);
+    });
+    open(q.get('priglas')?'p-priglas':'p-vhod');
+    if(q.get('priglas')){var c=document.querySelector('#p-priglas [name=code]');c.value=q.get('priglas');document.getElementById('p-priglas').requestSubmit()}
+  }).catch(function(){open('p-vhod')});
+  if(q.get('oshibka')) setTimeout(function(){say(document.querySelector('.pane.on'),q.get('oshibka'),false)},50);
+  if(q.get('vyshli')) setTimeout(function(){say(document.querySelector('.pane.on'),'Вы вышли. Возвращайтесь.',true)},50);
+})();
+</script>
+<script>(function(){try{var u='/hit?p='+encodeURIComponent(location.pathname)+'&r='+encodeURIComponent(document.referrer||'');if(navigator.sendBeacon){navigator.sendBeacon(u)}else{fetch(u,{method:'POST',keepalive:true})}}catch(e){}})();</script>
+<script src="/chat.js?v=18" defer></script>
+</body>
+</html>
